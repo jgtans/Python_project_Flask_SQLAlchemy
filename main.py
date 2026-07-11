@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route("/") # Декоратор
 def index():
     # при инициализации функции индекс, во время ретурн тригерется и возвращает index.html
-    return render_template("index.html")
+    return render_template("404.html"), 404
 
 @app.route("/hello")
 def hello():
