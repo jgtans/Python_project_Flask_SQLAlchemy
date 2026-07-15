@@ -21,9 +21,9 @@
 
 {% if notes %}
 	<ul>
-		{% for title, note in notes.items() %}
+		{% for note in notes %}
 			<li>
-				<strong> {{ title }}</strong>: {{ note }}
+				<strong> {{ note.title }}</strong>: {{ note.text }}
 			</li>
 		{% endfor %}
 	</ul>

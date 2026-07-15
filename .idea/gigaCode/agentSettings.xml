@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GigaCodeAgentSettings">
+    <option name="autoApprovedCommands">
+      <list>
+        <Execute>
+          <option name="pattern" value="pushd &quot;Q:\13. Synergy\Python PRO\Фреймворк Flask\Тема 3. Шаблоны и формы в Flask\Python_project_Flask_SQLAlchemy&quot;" />
+        </Execute>
+      </list>
+    </option>
+  </component>
+</project>
