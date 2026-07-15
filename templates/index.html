@@ -5,44 +5,21 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Добро пожаловать </title>
-    <link rel="stylesheet" href="..\..\static\css\index.css">
+    <title> Дневник программиста </title>
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/index.css') }}">
 </head>
 <body>
 
-	<h1> Добро пожаловать {{name}}! </h1>
-    <p>
-	Информация для заполнения
-    </p>
-	<img src="..\..\static\img\logo2.png" title="Доброе утро!">
-	<img src="https://avatars.mds.yandex.net/i?id=98bf66b7a9e651288460dbfcd5ea17a8_l-4892849-images-thumbs&n=13"
-	title="Кому как...">
-	   <table border="1">
-       <tr>
-           <th>Столбец 1</th>
-           <th>Столбец 2</th>
-           <th>Столбец 3</th>
-           <!-- добавьте еще 5 колонок для тем -->
-       </tr>
-       <tr>
-           <td>Колонка 1</td>
-           <td>90 тонн</td>
-           <td>80%</td>
-           <!-- ... -->
-       </tr>
-       <tr>
-           <td>Колонка 2</td>
-           <td>100 лет</td>
-           <td>50%</td>
-           <!-- ... -->
-       </tr>
-       <tr>
-           <td>Колонка 3</td>
-           <td>Отлично</td>
-           <td>Нужно вот тут прям срочно</td>
-           <!-- ... -->
-       </tr>
-   </table>
+<nav>
+    <a href="{{ url_for('index') }}"> Главная страница </a>
+    <a href="{{ url_for('notes') }}"> Дневник программиста </a>
+</nav>
+
+<hr>
+
+{% block content %}
+{% endblock %}
+
 </body>
 </html>
 

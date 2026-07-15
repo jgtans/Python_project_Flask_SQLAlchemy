@@ -1,33 +1,42 @@
-from flask import Flask, render_template
+
+from flask import Flask, render_template, request, redirect, url_for
 
 # Создали объект класса flask, для работы с веб-приложением (передаем базовый аргумент __name__)
 app = Flask(__name__)
 
-# Создаем базовый маршрут, для проверки работы нашего сайта
-@app.route("/") # Декоратор
+notes_db = {}
+
+@app.route("/")
 def index():
-    name = "Mihail"
-    # при инициализации функции индекс, во время ретурн тригерется и возвращает index.html
-    return render_template("index.html", name=name)
+    return render_template("index.html")
 
-@app.route("/hello")
-def hello():
-    return "Hello"
+@app.route("/notes")
+def notes():
+    return render_template("notes.html", notes=notes_db)
 
-# Вводим любое имя
-@app.route("/hello/<name>")
-def greetings(name):
-    return f"Hello, {name}"
+@app.route("/prog")
+def prog():
+    return render_template("programmer_diary.html")
 
-# Обработка ошибок
-@app.errorhandler(404)
-def not_found(e):
-    return render_template("404.html", 404)
+@app.route("/add_note", methods=["POST"])
+def add_note():
+    title = request.form.get("title")
+    text = request.form.get("text")
 
-# С помощью этой строчки проверяем, что этот файл является основным
+    if title and text:
+        notes_db[title] = text
+
+    return redirect(url_for("notes"))
+
+@app.route("/submit", methods=["POST"])
+def submit():
+    name = request.form["name"]
+    return f"Привет {name}"
+
 if __name__ == "__main__":
-    # В том случае если наш файл основной, мы хотим запустить приложение, а debug=True - покажет нам ошибку, но не закроет сайт
-    app.run(debug="True")
+    app.run(debug=True)
+
+
 
 
 
